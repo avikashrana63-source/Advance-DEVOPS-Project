@@ -1,0 +1,61 @@
+
+services:
+
+  backend:
+    build: ./backend
+    container_name: devops-backend
+    restart: unless-stopped
+    env_file:
+      - .env
+    networks:
+      - devops-net
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  frontend:
+    build: ./frontend
+    container_name: devops-frontend
+    restart: unless-stopped
+    networks:
+      - devops-net
+
+  database:
+    image: postgres:16-alpine
+    container_name: devops-db
+    restart: unless-stopped
+    env_file:
+      - .env
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    networks:
+      - devops-net
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U devops"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+  nginx:
+    image: nginx:1.27-alpine
+    container_name: devops-nginx
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - backend
+      - frontend
+    networks:
+      - devops-net
+
+networks:
+  devops-net:
+    driver: bridge
+
+volumes:
+  db_data:
+
