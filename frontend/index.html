@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Table Generator</title>
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            margin-top: 50px;
+        }
+        #tableResult {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+        input {
+            padding: 8px;
+            margin: 5px;
+        }
+        button {
+            padding: 8px 15px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<h2> Admin Login</h2>
+
+<div id="loginDiv">
+    <input type="text" id="username" placeholder="Username"><br>
+    <input type="password" id="password" placeholder="Password"><br>
+    <button onclick="login()">Login</button>
+    <p id="loginMsg"></p>
+</div>
+
+<div id="appDiv" style="display:none;">
+    <h2> Table Generator (2 to 20)</h2>
+    <input type="number" id="number" min="2" max="20" placeholder="Enter number">
+    <button onclick="getTable()">Get Table</button>
+
+    <div id="tableResult"></div>
+</div>
+
+<script>
+const API = "/api";
+
+async function login() {
+    const res = await fetch(`${API}/login`, {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({
+            username: document.getElementById("username").value,
+            password: document.getElementById("password").value
+        })
+    });
+
+    const data = await res.json();
+
+    if (data.status === "success") {
+        document.getElementById("loginDiv").style.display = "none";
+        document.getElementById("appDiv").style.display = "block";
+    } else {
+        document.getElementById("loginMsg").innerText = " Login Failed";
+    }
+}
+
+async function getTable() {
+    const num = document.getElementById("number").value;
+
+    const res = await fetch(`${API}/table/${num}`);
+    const data = await res.json();
+
+    if (data.table) {
+        document.getElementById("tableResult").innerHTML =
+            data.table.join("<br>");
+    } else {
+        document.getElementById("tableResult").innerText = data.error;
+    }
+}
+</script>
+
+</body>
+</html>
+
