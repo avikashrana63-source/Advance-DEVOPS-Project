@@ -48,3 +48,14 @@ Demonstrate:
 Part-1 commands scrrenshots:
 <img width="948" height="498" alt="Screenshot 2026-02-18 124648" src="https://github.com/user-attachments/assets/bf1c4f73-f837-4561-a831-bec5737aa2f1" />
 
+<img width="722" height="47" alt="Screenshot 2026-02-18 131014" src="https://github.com/user-attachments/assets/5bd7054f-8566-4aa5-9f50-23351d4ebeee" />
+
+<img width="927" height="705" alt="Screenshot 2026-02-18 131528" src="https://github.com/user-attachments/assets/fd912065-9449-4cb9-a1de-f24a00b1d9b0" />
+
+<img width="1052" height="308" alt="Screenshot 2026-02-18 132301" src="https://github.com/user-attachments/assets/08db10ea-9ed2-460f-8b9e-c1f7bf056fbd" />
+
+<img width="848" height="82" alt="Screenshot 2026-02-18 132854" src="https://github.com/user-attachments/assets/bbf2ad5e-54c1-471a-8b00-2859518deb35" />
+
+<img width="1347" height="290" alt="Screenshot 2026-02-18 134311" src="https://github.com/user-attachments/assets/d433d0a7-0eff-4f3b-822a-ff3f8c5be22e" />
+
+
