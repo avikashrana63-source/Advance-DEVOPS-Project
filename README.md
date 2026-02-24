@@ -44,3 +44,7 @@ Demonstrate:
 • Viewing container logs
 • Understanding bridge networking and port mapping
 • Explain difference between localhost and 0.0.0.0
+
+Part-1 commands scrrenshots:
+<img width="948" height="498" alt="Screenshot 2026-02-18 124648" src="https://github.com/user-attachments/assets/bf1c4f73-f837-4561-a831-bec5737aa2f1" />
+
